@@ -5,11 +5,9 @@ with open("/Users/christopherauld/Desktop/AOC2018/data/day2/input.txt", "r") as 
 out = {}
 
 for group in s:
-    found = False
     for char in group:
-        if group.count(char) > 1 and not found:
+        if group.count(char) > 1:
             out[group] = [0, 0]
-            found = True
         if group.count(char) == 2:
             out[group][0] = 1
         if group.count(char) == 3:
@@ -20,6 +18,7 @@ threes = 0
 for key, val in out.items():
     twos += val[0]
     threes += val[1]
+print(twos * threes)
 
 # Part 2
 o = {}
@@ -37,7 +36,6 @@ def is_off_by_one(a, b):
         return True
     if num_wrong != 1:
         return False
-
 
 for key, val in o.items():
     for k, v in o.items():
