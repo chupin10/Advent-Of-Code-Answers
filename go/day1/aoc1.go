@@ -7,13 +7,13 @@ import "strconv"
 
 
 func intInSlice(a int, list []int) bool {
-        for _, b := range list {
-            if b == a {
-                return true
-            }
+    for _, b := range list {
+        if b == a {
+            return true
         }
-        return false
     }
+    return false
+}
 
 
 func main() {
