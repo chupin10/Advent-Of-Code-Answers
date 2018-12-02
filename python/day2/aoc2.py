@@ -5,8 +5,9 @@ with open("/Users/christopherauld/Desktop/AOC2018/data/day2/input.txt", "r") as 
 out = {}
 
 for group in s:
+    found = False
     for char in group:
-        if group.count(char) > 1:
+        if group.count(char) > 1 and not found:
             out[group] = [0, 0]
         if group.count(char) == 2:
             out[group][0] = 1
