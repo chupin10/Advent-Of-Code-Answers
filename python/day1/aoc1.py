@@ -1,4 +1,4 @@
-with open("aoc1.txt", "r") as file:
+with open("/Users/christopherauld/Desktop/AOC2018/data/day1/aoc1.txt", "r") as file:
     freqs = [int(line.strip("\n")) for line in file]
 # Part 1
 print(sum(freqs))
