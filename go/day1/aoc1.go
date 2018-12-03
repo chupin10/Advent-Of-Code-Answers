@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
-import "os"
-import "bufio"
-import "strconv"
+import (
+    "fmt"
+    "os"
+    "bufio"
+    "strconv"
+)
 
 
 func intInSlice(a int, list []int) bool {
