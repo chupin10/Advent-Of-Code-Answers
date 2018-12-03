@@ -7,15 +7,6 @@ import (
 	"strconv"
 )
 
-func intInSlice(a int, list []int) bool {
-	for _, b := range list {
-		if b == a {
-			return true
-		}
-	}
-	return false
-}
-
 func main() {
 	filename := "/Users/christopherauld/Desktop/AOC2018/data/day1/aoc1.txt"
 	b, err := os.Open(filename)
@@ -40,18 +31,18 @@ func main() {
 	fmt.Println(final_freq)
 
 	// Part 2
-	all_freqs := []int{}
+	all_freqs := make(map[int]bool)
 	new_freq := 0
 	i := 0
-	not_found := true
+	found := false
 
-	for not_found {
+	for !found {
 		if i == len(delta_freqs) {
 			i = 0
 		}
 		new_freq = new_freq + delta_freqs[i]
-		not_found = !intInSlice(new_freq, all_freqs)
-		all_freqs = append(all_freqs, new_freq)
+		_, found = all_freqs[new_freq]
+		all_freqs[new_freq] = true
 		i++
 	}
 	fmt.Println(new_freq)
