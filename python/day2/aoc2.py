@@ -9,6 +9,7 @@ for group in s:
     for char in group:
         if group.count(char) > 1 and not found:
             out[group] = [0, 0]
+            found = True
         if group.count(char) == 2:
             out[group][0] = 1
         if group.count(char) == 3:
