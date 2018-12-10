@@ -22,9 +22,11 @@ def get_bbox_size(points):
     maxy = max([p[0][1] for p in points])
     return maxx - minx, maxy - miny
 
-'''
+
 # check to see how the bounding box is changing, look for minumum and then use that below as starting point
 bbs = []
+for p in points:
+    p[0] += p[1] * 10000
 for i in range(10000, 11000):
     bbs.append(get_bbox_size(points))
     update_pos(points)
@@ -33,7 +35,7 @@ for i in range(10000, 11000):
 plt.figure()
 plt.plot(bbs)
 plt.show()
-'''
+
 
 # update positions
 for p in points:
