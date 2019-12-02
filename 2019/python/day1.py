@@ -20,8 +20,8 @@ def get_fuel_required(mass: int) -> Tuple[int, bool]:
         return CACHE[mass], True
 
     total_fuel = fuel = floor(mass / 3) - 2
+    cache_mass(mass, fuel)
     if fuel <= 0:
-        cache_mass(mass, fuel)
         return total_fuel, False
     else:
         while fuel > 0:
@@ -29,7 +29,6 @@ def get_fuel_required(mass: int) -> Tuple[int, bool]:
             total_fuel += fuel if fuel > 0 else 0
             if was_cached:
                 return total_fuel, True
-        cache_mass(mass, total_fuel)
         return total_fuel, False
 
 
