@@ -1,6 +1,6 @@
 from math import floor
 from typing import List, Tuple
-import time
+
 
 CACHE = {}
 
@@ -34,9 +34,7 @@ def get_fuel_required(mass: int) -> Tuple[int, bool]:
 
 
 if __name__ == '__main__':
-    t0 = time.time()
     fuelreqs = [get_fuel_required(mass)[0] for i, mass in enumerate(open_input())]
-    print('Completion time', time.time() - t0)
     print('Part 2 answer:', sum(fuelreqs))
     print('14:', get_fuel_required(14)[0], 'vs 2')
     print('1969:', get_fuel_required(1969)[0], 'vs 966')
