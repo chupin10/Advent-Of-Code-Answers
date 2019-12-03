@@ -47,7 +47,7 @@ def manhattan_distance(p0: np.ndarray, p1: np.ndarray) -> float:
 
 
 def apply_wire_routes(wire: List[Move]) -> np.ndarray:
-    loc = np.full((SIZE, SIZE), 0, dtype=int)
+    loc = np.full((SIZE, SIZE), 0, dtype=np.int32)
     pos0 = STARTPOINT.copy()
     steps = 0
     for m in wire:
