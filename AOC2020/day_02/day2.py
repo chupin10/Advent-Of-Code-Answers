@@ -22,17 +22,28 @@ def get_vals(line: str):
     return (key, lims, chars)
 
 
-def is_valid(key: str, lims: tuple[int, int], chars: str) -> bool:
+def is_valid_partA(key: str, lims: tuple[int, int], chars: str) -> bool:
     count = chars.count(key)
     return lims[0] <= count <= lims[1]
 
 
+def is_valid_partB(key: str, lims: tuple[int, int], chars: str) -> bool:
+    print(lims)
+    if key == chars[lims[0] - 1] and key != chars[lims[1] - 1]:
+        return True
+    if key == chars[lims[1] - 1] and key != chars[lims[0] - 1]:
+        return True
+    else:
+        return False
+
+
 if __name__ == '__main__':
     lines = open_input()
+    # lines = TEST_CASES
     validity = [None]*len(lines)
     for i, test in enumerate(lines):
         out = get_vals(test)
-        if is_valid(*out):
+        if is_valid_partB(*out):
             validity[i] = 1
         else:
             validity[i] = 0
