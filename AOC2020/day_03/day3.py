@@ -63,10 +63,9 @@ def string_to_np(trees: str) -> np.ndarray:
     return treegrid
 
 
-def step(tob: Toboggan, treegrid: np.ndarray) -> bool:
-    STEPSIZE = np.array([1, 3])
+def step(tob: Toboggan, treegrid: np.ndarray, stepsize: np.ndarray) -> bool:
     grid_height, grid_width = treegrid.shape
-    newpos = tob.pos + STEPSIZE
+    newpos = tob.pos + stepsize
     if newpos[0] >= grid_height:
         return False
     if newpos[1] >= grid_width:
@@ -78,7 +77,18 @@ def step(tob: Toboggan, treegrid: np.ndarray) -> bool:
 
 if __name__ == '__main__':
     grid = string_to_np(open_input())
-    mytob = Toboggan()
-    while step(mytob, grid):
-        print(mytob.pos)
-    print(mytob.num_trees_hit)
+    stepsizes = [
+        np.array([1, 1]),
+        np.array([1, 3]),
+        np.array([1, 5]),
+        np.array([1, 7]),
+        np.array([2, 1]),
+    ]
+    results = []
+    for stepsz in stepsizes:
+        mytob = Toboggan()
+        while step(mytob, grid, stepsz):
+            pass
+        print(f"Slope:\t{stepsz}\tNum trees hit:\t{mytob.num_trees_hit} ")
+        results.append(mytob.num_trees_hit)
+    print(f"Answer: {np.prod(results)}")
