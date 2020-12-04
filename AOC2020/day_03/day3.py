@@ -76,7 +76,7 @@ def step(tob: Toboggan, treegrid: np.ndarray, stepsize: np.ndarray) -> bool:
 
 
 if __name__ == '__main__':
-    grid = string_to_np(open_input())
+    tgrid = string_to_np(open_input())
     stepsizes = [
         np.array([1, 1]),
         np.array([1, 3]),
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     results = []
     for stepsz in stepsizes:
         mytob = Toboggan()
-        while step(mytob, grid, stepsz):
+        while step(mytob, tgrid, stepsz):
             pass
         print(f"Slope:\t{stepsz}\tNum trees hit:\t{mytob.num_trees_hit} ")
         results.append(mytob.num_trees_hit)
