@@ -1,1 +1,3 @@
-GIT_DIR = '/Users/meter/Documents/personal/AOC2018/AOC2020'
+import pathlib
+
+GIT_DIR = pathlib.Path(__file__).parent.absolute()
