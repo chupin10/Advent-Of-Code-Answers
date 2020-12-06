@@ -19,7 +19,7 @@ TEST_ANSWERS_1 = [[3, 3, 3, 1, 1], 11]
 TEST_ANSWERS_2 = [[3, 0, 1, 1, 1], 6]
 
 
-def open_input() -> list[str]:
+def open_input() -> list[tuple[int, str]]:
     # NOTE: you need to have 2 blank lines at the end of input.txt
     with open(f'{GIT_DIR}/day_06/input.txt', 'r') as fh:
         lines = fh.read()
