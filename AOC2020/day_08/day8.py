@@ -124,7 +124,7 @@ class InstructionSet:
         while not self._op_idx == self._exit_line:
             self.run_next_instruction()
             opstot += 1
-            if opstot > self._exit_line:
+            if self._instrcts[self._op_idx].has_run:
                 print('No good')
                 return
         print(f'Fixed accumulator value: {self.accumulated_value}')
