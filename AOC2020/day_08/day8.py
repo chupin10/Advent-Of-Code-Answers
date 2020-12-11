@@ -32,29 +32,29 @@ class Operation:
         return ret
 
     @abstractmethod
-    def _func(self):
+    def _func(self, *args, **kwargs):
         pass
 
 
 class Nop(Operation):
     opcode: str = 'nop'
 
-    def _func(self) -> None:
+    def _func(self, *args, **kwargs) -> None:
         return
 
 
 class Accumulator(Operation):
     opcode: str = 'acc'
 
-    def _func(self, arg: int) -> int:
-        return arg
+    def _func(self, *args, **kwargs) -> int:
+        return args[0]
 
 
 class Jump(Operation):
     opcode: str = 'jmp'
 
-    def _func(self, arg: int) -> int:
-        return arg
+    def _func(self, *args, **kwargs) -> int:
+        return args[0]
 
 
 OPS = {
@@ -130,8 +130,6 @@ class InstructionSet:
         print(f'Fixed accumulator value: {self.accumulated_value}')
 
     def find_op_to_change(self):
-        fixed = False
-        self._ops_run = set()
         og_ins = self._instrcts.copy()
         for idx, instruct in enumerate(og_ins):
             self.reset(og_ins.copy())

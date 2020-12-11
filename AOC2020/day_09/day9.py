@@ -41,7 +41,6 @@ def part2(bv: int, numbers: list[int]):
                 return min(subset), max(subset)
 
 
-
 if __name__ == '__main__':
     data = open_input()
     bad_val = find_bad_val(data, 25)
