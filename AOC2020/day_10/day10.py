@@ -142,9 +142,4 @@ if __name__ == '__main__':
     print(max(my_adaptors) == max(my_adaptors))
     diffsfound = connect_adaptors(my_adaptors)
     print(diffsfound[1] * diffsfound[3])
-
-    sorted_adaptors = sorted(my_adaptors, reverse=True)
-    print(sorted_adaptors)
-
     print(get_all_paths(sorted(my_adaptors)))
-
